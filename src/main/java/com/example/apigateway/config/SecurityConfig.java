@@ -53,9 +53,11 @@ public class SecurityConfig {
                             "/auth/login",
                             // 회원가입
                             "/user/signup",
-                            "/user/vaild"
+                            "/user/vaild",
                             // 개별서비스별 URL -> 서비스를 추가하면서 구성
-
+                            "/post/**",
+                            "/cmt/**",
+                            "/search/**"
                             )
                     .permitAll()
                     // 나머지는 인증해야 접근 가능
