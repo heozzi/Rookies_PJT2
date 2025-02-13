@@ -48,12 +48,12 @@ public class ApiGatewayApplication {
                         r->r.path("/user/**").uri("lb://user")  )
                 .route("msa-sb-user",
                         r->r.path("/auth/**").uri("lb://user")  )
-                .route("MiniPro2_Post",
-                        r->r.path("/post/**").uri("lb://MiniPro2_Post")  )
-                .route("MiniPro2_Post",
-                        r->r.path("/cmt/**").uri("lb://MiniPro2_Post")  )
-                .route("MiniPro2_Post",
-                        r->r.path("/search/**").uri("lb://MiniPro2_Post")  )
+                .route("mp2",
+                        r->r.path("/post/**").uri("lb://mp2")  )
+                .route("mp2",
+                        r->r.path("/cmt/**").uri("lb://mp2")  )
+                .route("mp2",
+                        r->r.path("/search/**").uri("lb://mp2")  )
 
                 .build();
     }
