@@ -30,8 +30,11 @@ public class RedisConfig {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory()); // 연결설정
         // 설정
+
+
         template.setKeySerializer(new StringRedisSerializer()); // 키를 저정할때 문자열 객체 직렬화를 통해서 처리
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer()); // 값 객체 직렬화로 처리
         return template;
     }
+
 }
