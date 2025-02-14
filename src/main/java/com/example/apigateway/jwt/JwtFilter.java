@@ -35,9 +35,9 @@ public class JwtFilter implements WebFilter, ApplicationContextAware {
             "/auth/login",
             "/user/signup",
             "/user/vaild",
-            "/post/**",
-            "/cmt/**",
-            "/search/**"
+//            "/post/**",
+//            "/cmt/**",
+//            "/search/**"
             // 향후 확대 가능함 -> 차후 스프링시큐리티에서 반영 -> 같이 적용되게 구성 고민
     };
 
