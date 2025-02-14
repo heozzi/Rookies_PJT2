@@ -98,6 +98,13 @@ public class JwtFilter implements WebFilter, ApplicationContextAware {
                 //        개별 서비스는 게이트웨이에서 심은 정보를 기반으로 인증여부를 판단할수 있다!! -> 확장성 가질수 있다
                 //        개별 서비스는 게이트웨이의 시그널을 통해 인증을 간단하게 정리 or 토큰을 통해서 다시 검증가능
                 // 적용 예시
+                String refreshToken = redisTemplate.opsForValue().get(email);
+
+                // 추가 -> 엑세스토큰 예외처리
+                if (refreshToken == null ||  !jwtTokenProvider.validateToken(refreshToken)) {
+                    throw new IllegalArgumentException("엑세스토큰 만료");
+                }
+
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                         new User(email, "", new ArrayList<>()), null, null
                 );
@@ -121,6 +128,7 @@ public class JwtFilter implements WebFilter, ApplicationContextAware {
                 String email = e.getClaims().get("email", String.class);
                 // 2. 이메일을 이용 redis를 통해서 리플레시 토큰 획득 -> 로그인 진행시 엑세스/리플레시 토큰 발급(redis 저장예정)
                 String refreshToken = redisTemplate.opsForValue().get(email);
+
                 // 3. 리플레시 토큰의 유효성 검사, 존재여부 검사
                 if (refreshToken != null && jwtTokenProvider.validateToken(refreshToken)) {
                     // 4. (엑세스) 토큰 발급
