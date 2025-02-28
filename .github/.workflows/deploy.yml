@@ -3,7 +3,7 @@ name: Gataway_CI/CD
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   cicd-deploy:
     runs-on: ubuntu-latest
