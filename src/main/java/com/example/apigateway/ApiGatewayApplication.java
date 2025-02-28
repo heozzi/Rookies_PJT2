@@ -48,6 +48,8 @@ public class ApiGatewayApplication {
                         r->r.path("/user/**").uri("http://34.217.175.48:8083/user")  )
                 .route("user",
                         r->r.path("/auth/**").uri("http://34.217.175.48:8083/user")  )
+                .route("user",
+                        r->r.path("/api/**").uri("http://34.217.175.48:8083/user")  )
                 .route("post",
                         r->r.path("/post/**").uri("http://35.86.77.149:8081/post")  )
                 .route("post",
@@ -56,6 +58,8 @@ public class ApiGatewayApplication {
                         r->r.path("/search/**").uri("http://35.86.77.149:8081/post")  )
                 .route("feed",
                         r->r.path("/feed/**").uri("http://34.222.132.111:8082/feed")  )
+                .route("notification",
+                        r->r.path("/notification/**").uri("http://34.210.137.58:8084/notification")  )
 
                 .build();
     }
