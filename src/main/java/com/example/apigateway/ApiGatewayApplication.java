@@ -45,17 +45,17 @@ public class ApiGatewayApplication {
 
                 // 회원관리 -> url 프리픽스 2개 사용
                 .route("user",
-                        r->r.path("/user/**").uri("lb://user")  )
+                        r->r.path("/user/**").uri("http://34.217.175.48:8083/user")  )
                 .route("user",
-                        r->r.path("/auth/**").uri("lb://user")  )
+                        r->r.path("/auth/**").uri("http://34.217.175.48:8083/user")  )
                 .route("post",
-                        r->r.path("/post/**").uri("lb://post")  )
+                        r->r.path("/post/**").uri("http://35.86.77.149:8081/post")  )
                 .route("post",
-                        r->r.path("/cmt/**").uri("lb://post")  )
+                        r->r.path("/cmt/**").uri("http://35.86.77.149:8081/post")  )
                 .route("post",
-                        r->r.path("/search/**").uri("lb://post")  )
+                        r->r.path("/search/**").uri("http://35.86.77.149:8081/post")  )
                 .route("feed",
-                        r->r.path("/feed/**").uri("lb://feed")  )
+                        r->r.path("/feed/**").uri("http://34.222.132.111:8082/feed")  )
 
                 .build();
     }
